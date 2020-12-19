@@ -1,0 +1,5 @@
+asgiref @ file:///D:/PythonProjects/DJANGO/asgiref-3.3.0-py3-none-any.whl
+Django @ file:///D:/PythonProjects/DJANGO/Django-3.0.2-py3-none-any.whl
+Pillow==8.0.1
+pytz @ file:///D:/PythonProjects/DJANGO/pytz-2019.3-py2.py3-none-any.whl
+sqlparse @ file:///D:/PythonProjects/DJANGO/sqlparse-0.2.2-py2.py3-none-any.whl
