@@ -1,0 +1,18 @@
+	{% extends 'mysite/base.html' %}
+{% load static %}
+	{% block home %}
+<div class="container">
+  	<div style="padding-left: 20%;" class="jumbotron">
+  		<h1>hello</h1>
+	</div>
+</div>
+{% endblock home %}
+	{% if request.user.is_authenticated %}
+		{% for x in info %}
+			<div class="registerition">
+				<div class="title">{{x.title}}</div><br>
+				<div class="ttext">{{x.body}}</div><br>
+				<img class="images" src="/static/mysite/{{x.image}}">
+			</div>
+		{% endfor %}
+	{% endif %}

@@ -1,0 +1,16 @@
+{% extends 'mysite/base.html' %}
+{% load static %}
+    {% block register %}
+    {% if request.user.is_authenticated %}
+    <div class="container">
+  	<div style="padding-left: 20%;" class="jumbotron">
+    {% if request.user.is_authenticated %}
+        {% for item in items %}
+            <h2><a style="font-size: initial;" href="{% static 'mysite' %}/{{item}}" >{{item}}</a></h2>
+            <br>
+        {% endfor %}
+        {% endif %}
+   </div>
+</div>
+{% endif %}
+{% endblock register %}

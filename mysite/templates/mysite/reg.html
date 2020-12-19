@@ -1,0 +1,32 @@
+{% extends 'mysite/base.html' %}
+{% load static %}
+	{% block register %}
+<div class="container">
+  	<div style="padding-left: 20%;" class="jumbotron">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<div class="registerition">
+			{% if MYFORM %}
+				<form method="POST" >
+					{% csrf_token %}
+						{% for f in MYFORM %}
+							<div class="twoitems">
+								{{f.label_tag}}
+								<br>
+									{{f}}
+								<br>
+								{{f.errors}}
+							</div>					
+						{% endfor %}
+						{% if notlogin %}
+							<span style="color: red;">{{notlogin}}</span>
+						{% endif %}
+						<br>
+					 <div class="submit-row">
+					    <label>&nbsp;</label>
+					 </div><button  type="submit" value="Log in">sign in</button>
+				</form>
+				{% endif %}
+			</div>
+	</div>
+</div>
+{% endblock register %}

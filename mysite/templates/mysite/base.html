@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ibrahim</title>
+	<style type="text/css">
+		button {
+			margin-top: 1cm;
+		    background-color: #4CAF50;
+		    border: none;
+		    color: white;
+		    padding: 15px 32px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    cursor: pointer;
+			border: 2px solid;
+			border-radius: 30px ;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+    <a class="navbar-brand" >
+    {% if request.user.is_authenticated %}
+    	{{ request.user }}
+    {% else %}
+    	Hi !!
+    {% endif %}
+	</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample09">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">| Home <span class="sr-only">(current)</span></a>
+        </li>
+    {% if request.user.is_authenticated %}
+    	<li class="nav-item active">
+          <a class="nav-link" href="/upload">| Upload <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/download">| Download <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/logout">| Log out <span class="sr-only">(current)</span></a>
+        </li>
+	{% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">| Log in <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/reg">| Sign in <span class="sr-only">(current)</span></a>
+        </li>
+    {% endif %}
+      </ul>
+    </div>
+  </nav>
+    {% if request.user.is_authenticated %}
+    {% for x in info %}
+      <div class="registerition">
+        <div class="title">{{x.title}}</div><br>
+        <div class="ttext">{{x.body}}</div><br>
+        <img class="images" src="/static/mysite/{{x.image}}">
+      </div>
+    {% endfor %}
+    {% endif %}
+		{% block register %}
+		{% endblock register %}
+    </div>
+  </div>
+<link rel="stylesheet" type="text/css" href="{% static 'mysite/bootstartp/css/index.css' %}">
+<script type="text/javascript" src="{% static 'mysite/bootstartp/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'mysite/bootstartp/js/bootstrap.bundle.js' %}"></script>
+<script type="text/javascript" src="{% static 'mysite/bootstartp/js/bootstrap.bundle.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'mysite/bootstartp/js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'mysite/bootstartp/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
